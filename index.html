@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrollable Story</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        .image-section {
+            width: 100%;
+            position: relative;
+            display: block;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+            -webkit-backface-visibility: hidden;
+            -ms-transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .separator {
+            height: 15px;
+            background: linear-gradient(45deg, 
+                #2c3e50 25%, 
+                #34495e 25%, 
+                #34495e 50%, 
+                #2c3e50 50%, 
+                #2c3e50 75%, 
+                #34495e 75%, 
+                #34495e 100%
+            );
+            background-size: 20px 20px;
+            opacity: 0.8;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img src="1.jpg" alt="Section 1">
+        </div>
+        <div class="separator"></div>
+        <div class="image-section">
+            <img src="2.jpg" alt="Section 2">
+        </div>
+        <div class="separator"></div>
+        <div class="image-section">
+            <img src="3.jpg" alt="Section 3">
+        </div>
+        <div class="separator"></div>
+        <div class="image-section">
+            <img src="4.jpg" alt="Section 4">
+        </div>
+        <div class="separator"></div>
+        <div class="image-section">
+            <img src="5.jpg" alt="Section 5">
+        </div>
+        <div class="separator"></div>
+        <div class="image-section">
+            <img src="6.jpg" alt="Section 6">
+        </div>
+        <div class="separator"></div>
+        <div class="image-section">
+            <img src="7.jpg" alt="Section 7">
+        </div>
+    </div>
+</body>
+</html> 
