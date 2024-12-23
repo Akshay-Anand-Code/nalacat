@@ -1,6 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import { sendMessage } from './api/chatService.js';
+import handler from './api/chat.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const port = 3000;
@@ -27,14 +30,7 @@ app.post('/api/chat', async (req, res) => {
     res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
 
-    try {
-        const message = req.body.message;
-        const response = await sendMessage(message);
-        res.json({ message: response });
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ message: "Oops! Something went wrong!" });
-    }
+    await handler(req, res);
 });
 
 app.listen(port, () => {
