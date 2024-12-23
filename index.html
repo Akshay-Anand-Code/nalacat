@@ -613,13 +613,6 @@
 
     <script>
         async function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            const responseBubble = document.getElementById('responseBubble');
-            const responseText = document.getElementById('responseText');
-            
-            if (!message) return;
-
             try {
                 responseBubble.style.display = 'block';
                 responseText.textContent = "Thinking...";
@@ -627,32 +620,25 @@
                 const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ message })
+                    body: JSON.stringify({ message: chatInput.value })
                 });
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const data = await response.json();
+                if (!response.ok) throw new Error('Network response was not ok');
                 
-                // Show response bubble
+                const data = await response.json();
                 responseText.textContent = data.message;
                 
-                // Clear input
-                input.value = '';
-
-                // Hide response bubble after 5 seconds
+                chatInput.value = '';
+                
                 setTimeout(() => {
                     responseBubble.style.display = 'none';
                 }, 5000);
 
             } catch (error) {
                 console.error('Error:', error);
-                responseText.textContent = "Oops! Something went wrong!";
+                responseText.textContent = "*flicks tail in annoyance* Something went wrong with my cosmic whiskers!";
             }
         }
 
