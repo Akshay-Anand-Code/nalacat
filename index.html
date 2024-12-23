@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollable Story</title>
+    <title>sonala</title>
+    <link rel="icon" type="image/png" href="/1.jpg">
+    <!-- For older browsers that require .ico format -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <style>
         @font-face {
             font-family: 'Super Bubble';
@@ -494,6 +497,31 @@
             0%, 100% { transform: translateX(-50%) translateY(0); }
             50% { transform: translateX(-50%) translateY(-10px); }
         }
+
+        .step-three {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            text-align: left;
+        }
+
+        .step-three .step-title {
+            font-family: 'Super Bubble', sans-serif;
+            font-size: 42px;
+            color: white;
+            text-transform: uppercase;
+            line-height: 1.2;
+            white-space: pre-line;
+            -webkit-text-stroke: 2px black;
+            text-shadow: 
+                3px 3px 0 #000,
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
     </style>
 </head>
 <body>
@@ -540,8 +568,8 @@
             <img src="2.jpg" alt="Section 2">
             <div class="left-text">
                 <h1>ABOUT</h1>
-                <p>Once, Solana devs started LARPing as AI on Twitter, and the chaos was beautiful. Now there's larpAI—a coin that's all about that ridiculous, genius energy.</p>
-                <p>Pure vibes. Pretend to be AI, trade like a degen, and embrace the madness. <span class="emoji">🚀</span></p>
+                <p>Meet $NALA, the sassiest feline on Solana who's taken crypto Twitter by storm. Part meme, part revolution, she's here to show that cats truly do rule the blockchain.</p>
+                <p>Pure purrfection. Trade with feline grace, embrace the whisker-nomics, and join the most ambitious cat in crypto. <span class="emoji">😺</span></p>
             </div>
         </div>
         <div class="separator"></div>
@@ -550,27 +578,34 @@
             <div class="how-to-buy">
                 <div class="step">
                     <div class="step-title">STEP 1.
-                        DOWNLOAD &
-                        INSTALL A
-                        SOLANA
-                        CRYPTO
-                        WALLET</div>
+                        GET YOUR
+                        PAWS ON A
+                        PHANTOM
+                        WALLET
+                        MEOW!</div>
                 </div>
                 <div class="step">
                     <div class="center-title">HOW TO BUY?</div>
                 </div>
                 <div class="step">
                     <div class="step-title">STEP 2.
-                        GO AND
-                        PURCHASE
-                        SOME
-                        SOLANA!</div>
+                        SWAP YOUR
+                        SOL FOR
+                        $NALA ON
+                        RAYDIUM!</div>
                 </div>
             </div>
         </div>
         <div class="separator"></div>
         <div class="image-section">
             <img src="4.jpg" alt="Section 4">
+            <div class="step-three">
+                <div class="step-title">STEP 3.
+                    SWAP YOUR
+                    SOL ON
+                    RAYDIUM
+                    WITH $NALA</div>
+            </div>
         </div>
         
        
@@ -589,11 +624,12 @@
                 responseBubble.style.display = 'block';
                 responseText.textContent = "Thinking...";
 
-                const response = await fetch('/api/chat', {
+                const response = await fetch('http://localhost:3000/api/chat', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'Origin': window.location.origin
                     },
                     body: JSON.stringify({ message })
                 });

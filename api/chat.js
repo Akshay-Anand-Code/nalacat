@@ -1,4 +1,5 @@
 import OpenAI from 'openai';
+import { CAT_PERSONA } from './chatService.js';
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -14,7 +15,17 @@ export default async function handler(req, res) {
 
     const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: message }],
+      messages: [
+        {
+          role: "system",
+          content: CAT_PERSONA
+        },
+        { 
+          role: "user", 
+          content: message 
+        }
+      ],
+      temperature: 0.8,
       max_tokens: 150
     });
 
