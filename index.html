@@ -532,9 +532,105 @@
         /* Mobile Optimizations */
         @media screen and (max-width: 768px) {
             .chat-container {
-                width: 80%;
-                top: 65%;
+                width: 85%;
+                top: 75%;
                 transform: translateX(-50%);
+                position: fixed;
+                z-index: 1000;
+            }
+
+            .chat-input {
+                width: 100%;
+                padding: 15px;
+                padding-right: 50px;
+                font-size: 16px;
+            }
+
+            .send-button {
+                right: 5px;
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: #2ecc71;
+                border-radius: 50%;
+                z-index: 1001;
+            }
+
+            .send-button svg {
+                width: 24px;
+                height: 24px;
+                margin: auto;
+            }
+
+            .response-bubble {
+                width: 80%;
+                right: 10%;
+                top: 30%;
+                z-index: 999;
+            }
+
+            .scroll-text {
+                bottom: 15%;
+                font-size: 36px;
+                z-index: 998;
+            }
+
+            .image-section {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .image-section img {
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .nav-container {
+                top: 15px;
+                right: 15px;
+                gap: 10px;
+                display: flex;
+                align-items: center;
+                z-index: 1002;
+            }
+
+            .nav-icon {
+                width: 30px;
+                height: 30px;
+                margin: 0 5px;
+            }
+
+            .home-text {
+                font-size: 32px;
+                margin-right: 10px;
+            }
+
+            .rain-overlay {
+                height: 100vh;
+                object-fit: cover;
+            }
+
+            * {
+                touch-action: manipulation;
+            }
+
+            body {
+                overflow-x: hidden;
+                position: relative;
+            }
+
+            a, button {
+                min-width: 44px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .chat-input {
