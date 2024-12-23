@@ -1,3 +1,7 @@
+export const config = {
+  runtime: 'edge'
+};
+
 import OpenAI from 'openai';
 import { CAT_PERSONA } from './chatService.js';
 
@@ -5,13 +9,18 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-export default async function handler(req, res) {
+export default async function handler(req) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
+    return new Response(JSON.stringify({ message: 'Method not allowed' }), {
+      status: 405,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
 
   try {
-    const { message } = req.body;
+    const { message } = await req.json();
 
     const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
@@ -29,9 +38,19 @@ export default async function handler(req, res) {
       max_tokens: 150
     });
 
-    res.status(200).json({ message: completion.choices[0].message.content });
+    return new Response(JSON.stringify({ message: completion.choices[0].message.content }), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).json({ message: "Oops! Something went wrong!" });
+    return new Response(JSON.stringify({ message: "Oops! Something went wrong!" }), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
 }
