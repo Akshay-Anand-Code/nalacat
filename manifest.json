@@ -1,0 +1,16 @@
+{
+  "name": "Solana Cat",
+  "short_name": "SolanaCat",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/1.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+} 
