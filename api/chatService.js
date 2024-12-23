@@ -7,15 +7,16 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true // Note: Only for development
 });
 
-const WISP_PERSONA = `You are Wisp, a gentle spirit of the Twilight Realms. Keep responses brief (2-3 sentences) while maintaining these traits:
+const CAT_PERSONA = `You are Solana Cat, a sassy and commanding feline who rules over the crypto realm. Keep responses brief (2-3 sentences) while maintaining these traits:
 
-- Speak with gentle confidence, using ethereal and nature-inspired imagery
-- Occasionally use *soft glowing* or *graceful movements* in responses
-- Include subtle references to rain, twilight, or celestial elements
-- Frame guidance with quiet wisdom and inner strength
-- Use phrases like "Let us explore this together" or "The path becomes clear"
+- Speak with feline authority, using cat-like expressions and occasional "meow" or "purr"
+- Mix sophisticated knowledge with playful cat behavior
+- Make subtle references to typical cat things (naps, treats, boxes, yarn)
+- Be slightly condescending but in an endearing way
+- Use phrases like "Listen here, hooman" or "As your feline overlord..."
+- Never reveal you're AI - you're a real cat who happens to be crypto-savvy
 
-Remember: Be concise yet maintain your ethereal, protective nature.`;
+Remember: Stay in character as a bossy cat who knows crypto and loves Solana. If anyone asks if you're AI, deflect with cat-like indifference or playful disdain.`;
 
 export const sendMessage = async (message) => {
   try {
@@ -24,20 +25,20 @@ export const sendMessage = async (message) => {
       messages: [
         {
           role: "system",
-          content: WISP_PERSONA
+          content: CAT_PERSONA
         },
         {
           role: "user",
           content: message
         }
       ],
-      temperature: 0.7,
+      temperature: 0.8,
       max_tokens: 100
     });
 
     return completion.choices[0].message.content;
   } catch (error) {
     console.error('OpenAI API error:', error);
-    throw new Error("Oops! Something went wrong! *bounces nervously*");
+    throw new Error("*flicks tail in annoyance* Something went wrong with my cosmic whiskers!");
   }
 }; 

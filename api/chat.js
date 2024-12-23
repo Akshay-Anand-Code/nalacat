@@ -23,4 +23,4 @@ export default async function handler(req, res) {
     console.error('Error:', error);
     res.status(500).json({ message: "Oops! Something went wrong!" });
   }
-} 
+}
