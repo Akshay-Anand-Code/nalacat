@@ -401,11 +401,21 @@
         .nav-container {
             position: absolute;
             top: 30px;
-            right: 30px;
+            right: 20px;
             display: flex;
             align-items: center;
             gap: 15px;
             z-index: 102;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         .home-text {
@@ -824,6 +834,33 @@
             -webkit-appearance: none;
             border-radius: 8px;
         }
+
+        /* Add this style for the CA text */
+        .ca-text {
+            font-family: 'Super Bubble', sans-serif;
+            font-size: 42px;
+            color: white;
+            -webkit-text-stroke: 2px black;
+            text-shadow: 
+                3px 3px 0 #000,
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+
+        .nav-container {
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
     </style>
 </head>
 <body>
@@ -834,16 +871,19 @@
                 <source src="rain.mp4" type="video/mp4">
             </video>
             <div class="nav-container">
-                <div class="home-text">HOME</div>
-                <a href="#" class="nav-icon pump-icon">
-                    <img src="Pump_Fun.png" alt="Pump">
-                </a>
-                <a href="https://t.me/sonalacat" class="nav-icon telegram-icon" target="_blank">
-                    <img src="Telegram.png" alt="Telegram">
-                </a>
-                <a href="https://x.com/sonalacat" class="nav-icon x-icon" target="_blank">
-                    <img src="x.png" alt="X" style="filter: brightness(0) invert(1);">
-                </a>
+                <div class="ca-text">CA: COMING SOON</div>
+                <div class="nav-right">
+                    <div class="home-text">HOME</div>
+                    <a href="#" class="nav-icon pump-icon">
+                        <img src="Pump_Fun.png" alt="Pump">
+                    </a>
+                    <a href="https://t.me/sonalacat" class="nav-icon telegram-icon" target="_blank">
+                        <img src="Telegram.png" alt="Telegram">
+                    </a>
+                    <a href="https://x.com/sonalacat" class="nav-icon x-icon" target="_blank">
+                        <img src="x.png" alt="X" style="filter: brightness(0) invert(1);">
+                    </a>
+                </div>
             </div>
             <div class="chat-container">
                 <input type="text" class="chat-input" placeholder="Chat with me..." id="chatInput">
