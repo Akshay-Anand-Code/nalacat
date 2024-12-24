@@ -873,7 +873,66 @@
             backdrop-filter: blur(5px);
             white-space: nowrap;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 20px;
         }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .nav-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .nav-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        .nav-icon.pump-icon {
+            background: white;
+            padding: 5px;
+        }
+
+        .nav-icon.telegram-icon {
+            padding: 0;
+        }
+
+        .nav-icon.x-icon {
+            background: black;
+            padding: 8px;
+        }
+
+        /* Update the HTML structure */
+        <div class="ca-text">
+            CA: 9phUWhbq2E3dwjwdTHo6L9DhUKrJo1Q2wcahGHapump
+            <div class="social-icons">
+                <a href="https://pump.fun/coin/9phUWhbq2E3dwjwdTHo6L9DhUKrJo1Q2wcahGHapump" class="nav-icon pump-icon" target="_blank">
+                    <img src="Pump_Fun.png" alt="Pump">
+                </a>
+                <a href="https://t.me/sonalacat" class="nav-icon telegram-icon" target="_blank">
+                    <img src="Telegram.png" alt="Telegram">
+                </a>
+                <a href="https://x.com/sonalacat" class="nav-icon x-icon" target="_blank">
+                    <img src="x.png" alt="X" style="filter: brightness(0) invert(1);">
+                </a>
+            </div>
+        </div>
 
         /* Update nav container to not interfere with centered CA */
         .nav-container {
@@ -912,11 +971,10 @@
             <video class="rain-overlay" autoplay loop muted playsinline>
                 <source src="rain.mp4" type="video/mp4">
             </video>
-            <div class="ca-text">CA: 9phUWhbq2E3dwjwdTHo6L9DhUKrJo1Q2wcahGHapump</div>
-            <div class="nav-container">
-                <div class="nav-right">
-                    <div class="home-text">HOME</div>
-                    <a href="https://pump.fun/coin/9phUWhbq2E3dwjwdTHo6L9DhUKrJo1Q2wcahGHapump" class="nav-icon pump-icon">
+            <div class="ca-text">
+                CA: 9phUWhbq2E3dwjwdTHo6L9DhUKrJo1Q2wcahGHapump
+                <div class="social-icons">
+                    <a href="https://pump.fun/coin/9phUWhbq2E3dwjwdTHo6L9DhUKrJo1Q2wcahGHapump" class="nav-icon pump-icon" target="_blank">
                         <img src="Pump_Fun.png" alt="Pump">
                     </a>
                     <a href="https://t.me/sonalacat" class="nav-icon telegram-icon" target="_blank">
@@ -925,6 +983,12 @@
                     <a href="https://x.com/sonalacat" class="nav-icon x-icon" target="_blank">
                         <img src="x.png" alt="X" style="filter: brightness(0) invert(1);">
                     </a>
+                </div>
+            </div>
+            <div class="nav-container">
+                <div class="nav-right">
+                    
+                    <!-- Remove old navigation -->
                 </div>
             </div>
             <div class="chat-container">
