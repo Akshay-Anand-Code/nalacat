@@ -28,15 +28,40 @@
 
         .container {
             max-width: 100%;
-            margin: 0 auto;
+            margin: 20px auto;
             overflow-x: hidden;
+            background: #000;
+            position: relative;
         }
 
         .image-section {
             width: 100%;
             position: relative;
             display: block;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            /* Remove all-around box-shadow */
+        }
+        .image-section:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 48px;
+            pointer-events: none;
+            z-index: 10;
+            /* Make the gradient even more subtle or remove if needed */
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.10) 100%);
+        }
+        .image-section:not(:last-child) {
+            /* No shadow, border, or background */
+            z-index: 2;
+        }
+        .image-section:not(:last-child)::after {
+            content: none;
+        }
+        .separator {
+            display: none;
+            background: none;
         }
 
         .image-section img {
@@ -50,19 +75,7 @@
         }
 
         .separator {
-            height: 15px;
-            background: linear-gradient(45deg, 
-                #2c3e50 25%, 
-                #34495e 25%, 
-                #34495e 50%, 
-                #2c3e50 50%, 
-                #2c3e50 75%, 
-                #34495e 75%, 
-                #34495e 100%
-            );
-            background-size: 20px 20px;
-            opacity: 0.8;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            display: none; /* Remove the old separator */
         }
 
         .chat-container {
@@ -469,7 +482,21 @@
 
         .nav-icon.pump-icon {
             background: white;
-            padding: 5px;
+            padding: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-icon.pump-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
         }
 
         .nav-icon.telegram-icon {
@@ -864,7 +891,6 @@
             padding: 8px 15px;
             border-radius: 12px;
             border: 2px solid #2ecc71;
-            box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -896,7 +922,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             transform: translateY(0);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .nav-icon:hover {
@@ -906,7 +931,21 @@
 
         .nav-icon.pump-icon {
             background: white;
-            padding: 5px;
+            padding: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-icon.pump-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
         }
 
         .nav-icon.telegram-icon {
@@ -917,22 +956,6 @@
             background: black;
             padding: 8px;
         }
-
-        /* Update the HTML structure */
-        <div class="ca-text">
-            CA: contract address
-            <div class="social-icons">
-                <a href="https://pump.fun/coin/contract address" class="nav-icon pump-icon" target="_blank">
-                    <img src="Pump_Fun.png" alt="Pump">
-                </a>
-                <a href="https://t.me/sonalacat" class="nav-icon telegram-icon" target="_blank">
-                    <img src="Telegram.png" alt="Telegram">
-                </a>
-                <a href="https://x.com/sonalacat" class="nav-icon x-icon" target="_blank">
-                    <img src="x.png" alt="X" style="filter: brightness(0) invert(1);">
-                </a>
-            </div>
-        </div>
 
         /* Update nav container to not interfere with centered CA */
         .nav-container {
@@ -977,9 +1000,7 @@
                     <a href="https://pump.fun/coin/contract address" class="nav-icon pump-icon" target="_blank">
                         <img src="Pump_Fun.png" alt="Pump">
                     </a>
-                    <a href="https://t.me/sonalacat" class="nav-icon telegram-icon" target="_blank">
-                        <img src="Telegram.png" alt="Telegram">
-                    </a>
+                    
                     <a href="https://x.com/sonalacat" class="nav-icon x-icon" target="_blank">
                         <img src="x.png" alt="X" style="filter: brightness(0) invert(1);">
                     </a>
